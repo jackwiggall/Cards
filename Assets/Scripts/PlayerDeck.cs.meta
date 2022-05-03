@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: dc37065e0a5a07c42a85dd5786a36a6c
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - cardInDeck1: {instanceID: 0}
+  - cardInDeck2: {instanceID: 0}
+  - cardInDeck3: {instanceID: 0}
+  - cardInDeck4: {instanceID: 0}
+  - CardBack: {instanceID: 0}
+  - Deck: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
