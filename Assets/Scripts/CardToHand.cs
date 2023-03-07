@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using System.Collections.Specialized;
 using UnityEngine;
 
-public class CardToHand : MonoBehaviour
-{
+public class CardToHand : MonoBehaviour{
 
     public GameObject Hand;
     public GameObject It;
@@ -12,17 +11,10 @@ public class CardToHand : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
         Hand = GameObject.Find("Hand");
         It.transform.SetParent(Hand.transform);
-        It.transform.localScale = Vector3.one;
+        It.transform.localScale = Vector3.one * 1.2f;
         It.transform.position = new Vector3(transform.position.x, transform.position.y, -48);
         It.transform.eulerAngles = new Vector3(0, 0, 0);
-
     }
 }

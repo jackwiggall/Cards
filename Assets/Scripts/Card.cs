@@ -9,29 +9,31 @@ public class Card {
 	public int id;
 	public string cardName;
 	public int cost;
-	public int defense;
 	public int attack;
-	public string cardDescription;
+	//public int health;
+	public string description;
+	public bool friendly;
 
 	public Sprite thisImage;
 	
-
 
 	public Card()
 	{
 		
 	}
 
-	public Card(int Id, string CardName, int Cost, int Defense,  int Attack, string CardDescription, Sprite ThisImage)
+	public Card(int Id, string Name, int Cost,  int Attack, string Description, Sprite ThisImage)
 	{
 		id = Id;
-		cardName = CardName;
+		cardName = Name;
 		cost = Cost;
-		defense = Defense;
 		attack = Attack;
-		cardDescription = CardDescription;
+		//health = Health;
+		description = Description;
 
 		thisImage = ThisImage;
+
+		friendly = false; //cards arent yours unless set
 	}
 	
 }
