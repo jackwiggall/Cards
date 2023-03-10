@@ -13,6 +13,7 @@ public class AI : MonoBehaviour
 
     public static bool play;
     public static int pass;
+    public static bool end; //is game over
 
     void Start() {
         Hand = GameObject.Find("oppHand");
@@ -21,6 +22,7 @@ public class AI : MonoBehaviour
 
         play = false;
         pass = 0;
+        end = false;
 
     }
 
@@ -44,9 +46,9 @@ public class AI : MonoBehaviour
     //pick a card from hand to play
     void pickCard()
     {
-        if (pass >= 1) { //amount of passes before end
+        if (pass >= 2) { //amount of passes before end
             //ends game
-
+            end = true;
             if (TurnSystem.power == TurnSystem.opPower) {
                 Debug.Log("Tie");
                 turnText.text = "You Tied";
