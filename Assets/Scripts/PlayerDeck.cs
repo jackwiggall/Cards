@@ -32,6 +32,7 @@ public class PlayerDeck : MonoBehaviour {
     public AudioSource audioSource;
     public AudioClip bang;
 
+    public GameObject TurnSwap;
 
     // Start is called before the first frame update
     void Start()
@@ -52,6 +53,8 @@ public class PlayerDeck : MonoBehaviour {
         }
 
         Hand = GameObject.Find("Hand");
+        TurnSwap = GameObject.Find("TurnSystem");
+
         StartCoroutine(StartGame()); //puts card into hand
 
     }
@@ -102,7 +105,7 @@ public class PlayerDeck : MonoBehaviour {
             cardInDeck4.SetActive(true);
         }
 
-        if (TurnSystem.startTurn == true && TurnSystem.isYourTurn == true) {//broken
+        if (TurnSystem.startTurn == true && TurnSystem.isYourTurn == true) {
             //add calculation of card number to draw
             if (deckSize > 0 && Hand.transform.childCount < maxHand-1) //can only draw if card exists and space in hand
             {
@@ -112,7 +115,37 @@ public class PlayerDeck : MonoBehaviour {
                 //no cards to draw, do something else?
             }
             TurnSystem.startTurn = false;
+
+            StartCoroutine(wait());
         }
+    }
+
+    //waits a second before checking if playable turn
+    IEnumerator wait()
+    {
+        yield return new WaitForSeconds(2);
+        checkPlayable();
+        yield break;
+    }
+
+    //for auto skipping users turn
+    public void checkPlayable() {
+        if (Hand.transform.childCount > 0) //check hand isnt empty
+        {
+            for (int i = 0; i < Hand.transform.childCount; i++)
+            {
+                ThisCard temp = Hand.transform.GetChild(i).GetComponent<ThisCard>();
+                //Debug.Log("Looping");                                        
+                if (temp.canSummon == true) //doesnt work
+                {
+                    //Debug.Log("Playable");//can play card, exit loop
+                    return;
+                }
+  
+            }
+        }
+        AI.pass++;
+        TurnSwap.GetComponent<TurnSwap>().EndTurn(); //cant play skip turn
     }
 
     IEnumerator Example()
