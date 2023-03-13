@@ -10,23 +10,28 @@ public class MapGenerator : MonoBehaviour
 
     public GameObject node;
     
-    //save the list of nodes for loading after
-    public static List<NodeDetails> nodes = new List<NodeDetails>();
+    //save the list of nodes for loading after, move to scene controller for reloadability
+    //public static List<NodeDetails> nodes = new List<NodeDetails>();
 
     // Start is called before the first frame update
     void Start()
     {
-        clear();
+        //clear();
+        checkReload();
+    }
 
-        int x = Random.Range(1, 3);
-        //Debug.Log(x);
-        //creates a random amount of nodes
-        for (int i = 0; i < x; i++)
-        {
-            generate();
+    public void checkReload() {
+        if (SceneController.reload != true)
+        { //returning to previous map
+
+            clear();
+            randomisation();
         }
-        save();
-        reload();
+        else {
+
+            clear();
+            reload();
+        }
     }
 
     //empty map
@@ -50,35 +55,49 @@ public class MapGenerator : MonoBehaviour
         temp.transform.SetParent(panel2.transform);
     }
 
+    //choose what to generate
+    public void randomisation() {
+        //new in panel2
+        int x = Random.Range(1, 3);
+        //Debug.Log("panel2 "+ x);
+        for (int i = 0; i < x; i++)
+        {
+            generate();
+        }
+        save();
+    }
+
     //save current panel2
     public void save() {
 
-        nodes.Clear();
+        SceneController.nodes.Clear();
         foreach (Transform child in panel2.transform)
         {
-            nodes.Add(new NodeDetails("Skull")); //out of range
+            SceneController.nodes.Add(new NodeDetails("Skull"));
+            //Debug.Log("saved");
         }
-        clear();
+        
+    }
+
+    public void clearPanel2() {
+        foreach (Transform child in panel2.transform)
+        {
+            Destroy(child.gameObject);
+        }
     }
 
     //return after an event
     public void reload() {
 
         //old in panel1
-        foreach (NodeDetails input in nodes) { //need to get the string
+        foreach (NodeDetails input in SceneController.nodes) { //need to get the string
             //Debug.Log(input.type+" working");
             var temp = Instantiate(node, transform.position, transform.rotation);
             temp.tag = "Battle";
             temp.transform.SetParent(panel1.transform);
-
+            //Debug.Log("adding");
         }
-
-        //new in panel2
-        int x = Random.Range(1, 3);
-        //Debug.Log(x);
-        for (int i = 0; i < x; i++)
-        {
-            generate();
-        }
+        clearPanel2();
+        randomisation();
     }
 }

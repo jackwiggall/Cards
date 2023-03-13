@@ -43,27 +43,47 @@ public class AI : MonoBehaviour
         yield break;
     }
 
+    //game ended, delay before next event
+    IEnumerator delay()
+    {
+        yield return new WaitForSeconds(2);
+        SceneController.LoadMapScene();
+        yield break;
+    }
+
+    //round has ended
+    void endRound() {
+        end = true;
+        if (TurnSystem.power == TurnSystem.opPower)
+        {
+            Debug.Log("Tie");
+            turnText.text = "You Tied";
+        }
+        else if (TurnSystem.power > TurnSystem.opPower)
+        {
+            Debug.Log("You Win");
+            turnText.text = "You Win";
+        }
+        else
+        {
+            Debug.Log("You Lose");
+            turnText.text = "You Lose";
+        }
+        StartCoroutine(delay());
+
+    }
+
     //pick a card from hand to play
     void pickCard()
     {
         if (pass >= 2) { //amount of passes before end
-            //ends game
-            end = true;
-            if (TurnSystem.power == TurnSystem.opPower) {
-                Debug.Log("Tie");
-                turnText.text = "You Tied";
-            } else if (TurnSystem.power > TurnSystem.opPower)
-            {
-                Debug.Log("You Win");
-                turnText.text = "You Win";
-            } else {
-                Debug.Log("You Lose");
-                turnText.text = "You Lose";
-            }
+            
+            endRound();
         }
 
 
-        if (Hand.transform.childCount > 0) //check hand isnt empty
+        //replace 7 with maxplaysize
+        if (Hand.transform.childCount > 0 && Zone.transform.childCount < 7) //check hand isnt empty
         {
             for (int i = 0; i < Hand.transform.childCount; i++)
             {

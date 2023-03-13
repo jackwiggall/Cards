@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class SceneController : MonoBehaviour
 {
+    public static bool reload = false;
+    public static List<NodeDetails> nodes = new List<NodeDetails>();
 
     public void LoadMenuScene()
     {
@@ -16,13 +18,15 @@ public class SceneController : MonoBehaviour
         SceneManager.LoadScene("Battle");
     }
 
-    public void NextScene()
+    public static void LoadMapScene()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        reload = true;
+        SceneManager.LoadScene("Map");
     }
 
-    public void ReloadScene()
+    //previous scene
+    public static void ReloadScene()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
     }
 }
