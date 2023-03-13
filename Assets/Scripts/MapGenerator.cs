@@ -19,7 +19,7 @@ public class MapGenerator : MonoBehaviour
         clear();
 
         int x = Random.Range(1, 3);
-        Debug.Log(x);
+        //Debug.Log(x);
         //creates a random amount of nodes
         for (int i = 0; i < x; i++)
         {
@@ -75,7 +75,7 @@ public class MapGenerator : MonoBehaviour
 
         //new in panel2
         int x = Random.Range(1, 3);
-        Debug.Log(x);
+        //Debug.Log(x);
         for (int i = 0; i < x; i++)
         {
             generate();

@@ -26,6 +26,7 @@ public class NodeEvent : MonoBehaviour
             if (node.tag == "Battle") { //need to add tag? 
                 //save layout, start next game
                 Debug.Log("Start battle");
+                SceneController.LoadBattleScene();
             }
 
         } else {
