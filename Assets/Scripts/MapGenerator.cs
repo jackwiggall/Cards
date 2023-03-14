@@ -1,12 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MapGenerator : MonoBehaviour
 {
 
     public GameObject panel1;
     public GameObject panel2;
+
+    //gold counter
+    public Text moneyText;
 
     public GameObject node;
     
@@ -18,6 +22,7 @@ public class MapGenerator : MonoBehaviour
     {
         //clear();
         checkReload();
+        moneyText.text = SceneController.gold+""; //change to new script
     }
 
     public void checkReload() {
@@ -28,7 +33,7 @@ public class MapGenerator : MonoBehaviour
             randomisation();
         }
         else {
-
+            //first time on map
             clear();
             reload();
         }

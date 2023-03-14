@@ -39,18 +39,15 @@ public class PlayerDeck : MonoBehaviour {
     {
         deckSize = 10;
 
-        //sets a random captain to the top of the deck
-        x = Random.Range(1, CardDatabase.capList.Count);
-        deck[deckSize-1] = CardDatabase.capList[x]; //put captain at bottom so drawn first
-
-        //creates a deck with a random assortment of cards from the database
-        for(int i=0;i<deckSize-1;i++)
+        if (SceneController.deckMade != true)
         {
-            //get random number
-            x = Random.Range(1, CardDatabase.crewList.Count);
-            //adds to deck array a random crew card
-            deck[i] = CardDatabase.crewList[x];
+            generateDeck();
         }
+        else {
+            deck = SceneController.staticDeck;
+        }
+
+        staticDeck = SceneController.staticDeck;
 
         Hand = GameObject.Find("Hand");
         TurnSwap = GameObject.Find("TurnSystem");
@@ -59,12 +56,31 @@ public class PlayerDeck : MonoBehaviour {
 
     }
 
+    //if first game create deck
+    public void generateDeck() {
+        deckSize = 10;
+
+        //sets a random captain to the top of the deck
+        x = Random.Range(1, CardDatabase.capList.Count);
+        deck[deckSize - 1] = CardDatabase.capList[x]; //put captain at bottom so drawn first
+
+        //creates a deck with a random assortment of cards from the database
+        for (int i = 0; i < deckSize - 1; i++)
+        {
+            //get random number
+            x = Random.Range(1, CardDatabase.crewList.Count);
+            //adds to deck array a random crew card
+            deck[i] = CardDatabase.crewList[x];
+        }
+        SceneController.staticDeck = deck;
+        SceneController.deckMade = true;
+    }
+
     // Update is called once per frame
     void Update()
     {
 
         staticDeck = deck;
-
         //either change this so its called when it updates instead of always
         //or add if true here cause this just deletes if deck size less than, wont show if more added to pile
 

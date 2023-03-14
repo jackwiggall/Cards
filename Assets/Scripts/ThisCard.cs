@@ -112,7 +112,7 @@ public class ThisCard : MonoBehaviour {
         {
             if (friendly)
             {
-                if (TurnSystem.gold >= cost && TurnSystem.isYourTurn == true)
+                if (SceneController.gold >= cost && TurnSystem.isYourTurn == true)
                 {
                     canSummon = true;
                 }
@@ -149,7 +149,7 @@ public class ThisCard : MonoBehaviour {
     public void Summon() {
         if (friendly)
         {
-            TurnSystem.gold -= cost;
+            SceneController.gold -= cost;
         }
         else {
             TurnSystem.oppGold -= cost;

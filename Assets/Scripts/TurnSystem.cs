@@ -10,7 +10,7 @@ public class TurnSystem : MonoBehaviour
     public static int yourOpponentTurn;
     public Text turnText;
 
-    public static int gold;
+    //public static int gold;
     public static int oppGold;
     public Text moneyText;
     public Text oppMoney;
@@ -38,7 +38,7 @@ public class TurnSystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        moneyText.text = gold + "";
+        moneyText.text = SceneController.gold + "";
         oppMoney.text = oppGold + "";
 
         int oppPow = 0;
@@ -92,7 +92,7 @@ public class TurnSystem : MonoBehaviour
             turnText.text = "Opponent Turn";
             StartCoroutine(wait()); //needs delay before bot starts to draw all cards
         }
-        gold = 10;
+        //gold = 10;
         oppGold = 10;
         startTurn = false;
     }

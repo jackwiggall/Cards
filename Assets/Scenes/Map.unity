@@ -781,4 +781,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   panel1: {fileID: 4111920}
   panel2: {fileID: 833680457}
+  moneyText: {fileID: 1693595505}
   node: {fileID: 1257352874136762120, guid: 11c2b5e01c324014081d1974b403d631, type: 3}
