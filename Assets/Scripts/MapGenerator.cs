@@ -12,10 +12,8 @@ public class MapGenerator : MonoBehaviour
     //gold counter
     public Text moneyText;
 
+    public GameObject ship;
     public GameObject node;
-    
-    //save the list of nodes for loading after, move to scene controller for reloadability
-    //public static List<NodeDetails> nodes = new List<NodeDetails>();
 
     // Start is called before the first frame update
     void Start()
@@ -50,6 +48,9 @@ public class MapGenerator : MonoBehaviour
         {
             Destroy(child.gameObject);
         }
+        //add ship to map
+        //var temp = Instantiate(ship, transform.position, transform.rotation);
+        //temp.transform.SetParent(panel1.transform);
     }
 
     //add items to map
@@ -69,19 +70,6 @@ public class MapGenerator : MonoBehaviour
         {
             generate();
         }
-        save();
-    }
-
-    //save current panel2
-    public void save() {
-
-        SceneController.nodes.Clear();
-        foreach (Transform child in panel2.transform)
-        {
-            SceneController.nodes.Add(new NodeDetails("Skull"));
-            //Debug.Log("saved");
-        }
-        
     }
 
     public void clearPanel2() {
@@ -94,14 +82,13 @@ public class MapGenerator : MonoBehaviour
     //return after an event
     public void reload() {
 
-        //old in panel1
-        foreach (NodeDetails input in SceneController.nodes) { //need to get the string
-            //Debug.Log(input.type+" working");
+        //set previous area to whatever
+        if (SceneController.type == "battle") {
             var temp = Instantiate(node, transform.position, transform.rotation);
             temp.tag = "Battle";
             temp.transform.SetParent(panel1.transform);
-            //Debug.Log("adding");
         }
+
         clearPanel2();
         randomisation();
     }

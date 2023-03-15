@@ -729,6 +729,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -0.08135986
       objectReference: {fileID: 0}
+    - target: {fileID: 3594246758550840331, guid: cad327b6849d7cd44a7f8f7628d6a4f0,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.37617493
+      objectReference: {fileID: 0}
     - target: {fileID: 3594246758590483449, guid: cad327b6849d7cd44a7f8f7628d6a4f0,
         type: 3}
       propertyPath: id
@@ -803,6 +808,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.y
       value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5061770475540560600, guid: cad327b6849d7cd44a7f8f7628d6a4f0,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.3333334
       objectReference: {fileID: 0}
     - target: {fileID: 5061770475540560600, guid: cad327b6849d7cd44a7f8f7628d6a4f0,
         type: 3}
@@ -1185,6 +1195,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1564834677}
     m_Modifications:
+    - target: {fileID: 3594246758550840331, guid: cad327b6849d7cd44a7f8f7628d6a4f0,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.37617493
+      objectReference: {fileID: 0}
     - target: {fileID: 3594246758590483448, guid: cad327b6849d7cd44a7f8f7628d6a4f0,
         type: 3}
       propertyPath: cardBack
@@ -1205,6 +1220,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Card (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3594246758936376535, guid: cad327b6849d7cd44a7f8f7628d6a4f0,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.04675293
       objectReference: {fileID: 0}
     - target: {fileID: 5061770475540560600, guid: cad327b6849d7cd44a7f8f7628d6a4f0,
         type: 3}
@@ -1255,6 +1275,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.y
       value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5061770475540560600, guid: cad327b6849d7cd44a7f8f7628d6a4f0,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.3333334
       objectReference: {fileID: 0}
     - target: {fileID: 5061770475540560600, guid: cad327b6849d7cd44a7f8f7628d6a4f0,
         type: 3}
@@ -1337,6 +1362,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1527596081}
     m_Modifications:
+    - target: {fileID: 3594246758550840331, guid: cad327b6849d7cd44a7f8f7628d6a4f0,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.37617493
+      objectReference: {fileID: 0}
     - target: {fileID: 3594246758590483448, guid: cad327b6849d7cd44a7f8f7628d6a4f0,
         type: 3}
       propertyPath: cardBack
@@ -1357,6 +1387,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Card (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3594246758936376535, guid: cad327b6849d7cd44a7f8f7628d6a4f0,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.04676056
       objectReference: {fileID: 0}
     - target: {fileID: 5061770475540560600, guid: cad327b6849d7cd44a7f8f7628d6a4f0,
         type: 3}
@@ -1407,6 +1442,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.y
       value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5061770475540560600, guid: cad327b6849d7cd44a7f8f7628d6a4f0,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.3333334
       objectReference: {fileID: 0}
     - target: {fileID: 5061770475540560600, guid: cad327b6849d7cd44a7f8f7628d6a4f0,
         type: 3}
@@ -1494,6 +1534,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -0.08135986
       objectReference: {fileID: 0}
+    - target: {fileID: 3594246758550840331, guid: cad327b6849d7cd44a7f8f7628d6a4f0,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.37617493
+      objectReference: {fileID: 0}
     - target: {fileID: 3594246758590483449, guid: cad327b6849d7cd44a7f8f7628d6a4f0,
         type: 3}
       propertyPath: id
@@ -1563,6 +1608,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.y
       value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5061770475540560600, guid: cad327b6849d7cd44a7f8f7628d6a4f0,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.3333334
       objectReference: {fileID: 0}
     - target: {fileID: 5061770475540560600, guid: cad327b6849d7cd44a7f8f7628d6a4f0,
         type: 3}
@@ -1805,6 +1855,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1527596081}
     m_Modifications:
+    - target: {fileID: 3594246758550840331, guid: cad327b6849d7cd44a7f8f7628d6a4f0,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.37617493
+      objectReference: {fileID: 0}
     - target: {fileID: 3594246758590483449, guid: cad327b6849d7cd44a7f8f7628d6a4f0,
         type: 3}
       propertyPath: id
@@ -1819,6 +1874,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Card (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3594246758936376535, guid: cad327b6849d7cd44a7f8f7628d6a4f0,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.04676056
       objectReference: {fileID: 0}
     - target: {fileID: 3594246759092038640, guid: cad327b6849d7cd44a7f8f7628d6a4f0,
         type: 3}
@@ -1874,6 +1934,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.y
       value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5061770475540560600, guid: cad327b6849d7cd44a7f8f7628d6a4f0,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.3333334
       objectReference: {fileID: 0}
     - target: {fileID: 5061770475540560600, guid: cad327b6849d7cd44a7f8f7628d6a4f0,
         type: 3}
@@ -2590,6 +2655,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -0.08135986
       objectReference: {fileID: 0}
+    - target: {fileID: 3594246758550840331, guid: cad327b6849d7cd44a7f8f7628d6a4f0,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.37617493
+      objectReference: {fileID: 0}
     - target: {fileID: 3594246758590483449, guid: cad327b6849d7cd44a7f8f7628d6a4f0,
         type: 3}
       propertyPath: id
@@ -2659,6 +2729,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.y
       value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5061770475540560600, guid: cad327b6849d7cd44a7f8f7628d6a4f0,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.3333334
       objectReference: {fileID: 0}
     - target: {fileID: 5061770475540560600, guid: cad327b6849d7cd44a7f8f7628d6a4f0,
         type: 3}
@@ -3245,6 +3320,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1564834677}
     m_Modifications:
+    - target: {fileID: 3594246758550840331, guid: cad327b6849d7cd44a7f8f7628d6a4f0,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.37617493
+      objectReference: {fileID: 0}
     - target: {fileID: 3594246758590483449, guid: cad327b6849d7cd44a7f8f7628d6a4f0,
         type: 3}
       propertyPath: id
@@ -3259,6 +3339,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Card (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3594246758936376535, guid: cad327b6849d7cd44a7f8f7628d6a4f0,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.04675293
       objectReference: {fileID: 0}
     - target: {fileID: 3594246759092038640, guid: cad327b6849d7cd44a7f8f7628d6a4f0,
         type: 3}
@@ -3314,6 +3399,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.y
       value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5061770475540560600, guid: cad327b6849d7cd44a7f8f7628d6a4f0,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.3333334
       objectReference: {fileID: 0}
     - target: {fileID: 5061770475540560600, guid: cad327b6849d7cd44a7f8f7628d6a4f0,
         type: 3}
@@ -3517,6 +3607,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -0.08135986
       objectReference: {fileID: 0}
+    - target: {fileID: 3594246758550840331, guid: cad327b6849d7cd44a7f8f7628d6a4f0,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.37617493
+      objectReference: {fileID: 0}
     - target: {fileID: 3594246758590483449, guid: cad327b6849d7cd44a7f8f7628d6a4f0,
         type: 3}
       propertyPath: id
@@ -3586,6 +3681,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.y
       value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5061770475540560600, guid: cad327b6849d7cd44a7f8f7628d6a4f0,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.3333334
       objectReference: {fileID: 0}
     - target: {fileID: 5061770475540560600, guid: cad327b6849d7cd44a7f8f7628d6a4f0,
         type: 3}

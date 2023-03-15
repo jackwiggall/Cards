@@ -7,7 +7,7 @@ public class SceneController : MonoBehaviour
 {
     public static bool reload = false; //returning to map
     public static bool deckMade = false; //for generating a deck the first time
-    public static List<NodeDetails> nodes = new List<NodeDetails>(); //save nodes on map for reload
+    public static string type = "null"; //scene type just returned from
      
     
     //move to new script?
@@ -21,6 +21,7 @@ public class SceneController : MonoBehaviour
 
     public static void LoadBattleScene()
     {
+        type = "battle";
         SceneManager.LoadScene("Battle");
     }
 
