@@ -9,6 +9,7 @@ TagManager:
   - Deck
   - oppHand
   - Battle
+  - Shop
   layers:
   - Default
   - TransparentFX

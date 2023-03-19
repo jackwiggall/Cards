@@ -45,6 +45,7 @@ public class PlayerDeck : MonoBehaviour {
         }
         else {
             deck = SceneController.staticDeck;
+            //Shuffle();
         }
 
         staticDeck = SceneController.staticDeck;
@@ -152,7 +153,7 @@ public class PlayerDeck : MonoBehaviour {
             {
                 ThisCard temp = Hand.transform.GetChild(i).GetComponent<ThisCard>();
                 //Debug.Log("Looping");                                        
-                if (temp.canSummon == true) //doesnt work
+                if (temp.canSummon == true)
                 {
                     //Debug.Log("Playable");//can play card, exit loop
                     return;

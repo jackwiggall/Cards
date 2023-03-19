@@ -25,6 +25,12 @@ public class SceneController : MonoBehaviour
         SceneManager.LoadScene("Battle");
     }
 
+    public static void LoadShopScene()
+    {
+        type = "shop";
+        SceneManager.LoadScene("Shop");
+    }
+
     public static void LoadMapScene()
     {
         reload = true;
