@@ -29,6 +29,23 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
         this.transform.SetParent(this.transform.parent.parent);
 
         GetComponent<CanvasGroup>().blocksRaycasts = false;
+
+        //if selecting card for looting
+        if (gameObject.scene.name.Equals("Loot")) {
+            Debug.Log("Selection made");
+            //empty panel so only this is there
+            foreach (Transform child in placeholderParent.transform)
+            {
+                Destroy(child.gameObject);
+            }
+            this.transform.SetParent(placeholderParent); //return to place
+            SelectSystem.chosenLoot();
+        } else if (gameObject.scene.name.Equals("Shop")) {
+            Debug.Log("Selection made");
+            this.transform.SetParent(placeholderParent);
+            SelectSystem.chosenShop();
+        }
+
     }
 
     public void OnDrag(PointerEventData eventData)

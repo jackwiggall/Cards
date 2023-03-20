@@ -468,8 +468,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2020640067}
-        m_TargetAssemblyTypeName: ShopSystem, Assembly-CSharp
-        m_MethodName: endShop
+        m_TargetAssemblyTypeName: SelectSystem, Assembly-CSharp
+        m_MethodName: end
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -866,4 +866,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moneyText: {fileID: 1693595505}
   selection: {fileID: 1689751236}
-  card: {fileID: 4094732829664452705, guid: 25db13358d76c604089892113c1f838b, type: 3}
+  card: {fileID: 2050355466358610457, guid: 364aed6b0bc92c24dac2236974b4d9ce, type: 3}
+  x: 0

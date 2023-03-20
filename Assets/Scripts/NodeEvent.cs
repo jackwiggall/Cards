@@ -12,26 +12,28 @@ public class NodeEvent : MonoBehaviour
     //player clicks on node
     public void onClick() {
         node = EventSystem.current.currentSelectedGameObject;
-        string name = node.name;
+        /*string name = node.name;
 
         try
         {
             name = name.Substring(0, name.IndexOf('('));//shortens so (1) is deleted
         }
-        catch {}
+        catch {}*/
 
         if (node.transform.parent.name=="Panel2") { //if node is in right place
             //Debug.Log(name + " Clicked");
 
-            if (node.tag == "Battle") { //need to add tag? 
-                //save layout, start next game
+            if (node.tag == "Battle") { 
                 Debug.Log("Start battle");
                 SceneController.LoadBattleScene();
             }else if (node.tag == "Shop")
-            { //need to add tag? 
-                //save layout, start next game
+            {
                 Debug.Log("Open shop");
                 SceneController.LoadShopScene();
+            }else if (node.tag == "Loot")
+            {
+                Debug.Log("Open loot");
+                SceneController.LoadLootScene();
             }
 
         } else {

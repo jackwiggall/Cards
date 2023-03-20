@@ -36,7 +36,9 @@ public class CardShop : MonoBehaviour
 
         thisSprite = SceneController.staticDeck[x].thisImage;
 
-        cardBack.SetActive(false);
+        //cant interact until all cards visible
+        cardBack.SetActive(true);
+        gameObject.GetComponent<Draggable>().enabled = false;
 
         nameText.text = "" + name;
         costText.text = "" + cost;

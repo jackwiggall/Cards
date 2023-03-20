@@ -10,6 +10,7 @@ TagManager:
   - oppHand
   - Battle
   - Shop
+  - Loot
   layers:
   - Default
   - TransparentFX

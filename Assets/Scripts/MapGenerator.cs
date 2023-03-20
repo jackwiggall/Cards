@@ -16,11 +16,13 @@ public class MapGenerator : MonoBehaviour
     public GameObject node;
 
     Sprite shopButton;
+    Sprite lootButton;
 
     // Start is called before the first frame update
     void Start()
     {
         shopButton = Resources.Load<Sprite>("buttonCoin");
+        lootButton = Resources.Load<Sprite>("buttonChest");
 
         clear();
         checkReload();
@@ -56,13 +58,18 @@ public class MapGenerator : MonoBehaviour
     public void generate() {
 
         var temp = Instantiate(node, transform.position, transform.rotation);
-        int x = Random.Range(1, 3);
+        int x = Random.Range(1, 4);
         if (x == 1)
         {
             temp.tag = "Shop";
             temp.GetComponent<Image>().sprite = shopButton;
         }
-        else {
+        else if (x == 2) {
+            temp.tag = "Loot";
+            temp.GetComponent<Image>().sprite = lootButton;
+        }
+        else
+        {
             temp.tag = "Battle";
         }
         temp.transform.SetParent(panel2.transform);
@@ -95,11 +102,17 @@ public class MapGenerator : MonoBehaviour
             temp.tag = "Battle";
             temp.transform.SetParent(panel1.transform);
         }
-        if (SceneController.type == "shop")
+        else if (SceneController.type == "shop")
         {
             var temp = Instantiate(node, transform.position, transform.rotation);
             temp.tag = "Shop";
             temp.GetComponent<Image>().sprite = shopButton;
+            temp.transform.SetParent(panel1.transform);
+        }else if (SceneController.type == "loot")
+        {
+            var temp = Instantiate(node, transform.position, transform.rotation);
+            temp.tag = "Loot";
+            temp.GetComponent<Image>().sprite = lootButton;
             temp.transform.SetParent(panel1.transform);
         }
 
