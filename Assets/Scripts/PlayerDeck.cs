@@ -37,7 +37,6 @@ public class PlayerDeck : MonoBehaviour {
     // Start is called before the first frame update
     void Start()
     {
-        deckSize = 10;
 
         if (SceneController.deckMade != true)
         {
@@ -45,9 +44,11 @@ public class PlayerDeck : MonoBehaviour {
         }
         else {
             deck = SceneController.staticDeck;
-            //Shuffle();
+            deckSize = SceneController.staticDeck.Count;
+            
         }
 
+        Shuffle(); //reorder deck
         staticDeck = SceneController.staticDeck;
 
         Hand = GameObject.Find("Hand");
@@ -59,7 +60,7 @@ public class PlayerDeck : MonoBehaviour {
 
     //if first game create deck
     public void generateDeck() {
-        deckSize = 10;
+        deckSize = 10; //opening decksize is 10
 
         //sets a random captain to the top of the deck
         x = Random.Range(1, CardDatabase.capList.Count);

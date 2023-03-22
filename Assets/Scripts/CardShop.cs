@@ -6,6 +6,8 @@ using UnityEngine.UI;
 public class CardShop : MonoBehaviour
 {
 
+    public int x; //the number in the deck 
+
     public int id;
     public string cardName;
     public int cost;
@@ -26,10 +28,10 @@ public class CardShop : MonoBehaviour
     void Start()
     {
         //gets random card from deck, allows multiple of same o.o
-        int x = Random.Range(1, SceneController.staticDeck.Count);
+        x = Random.Range(1, SceneController.staticDeck.Count);
 
         id = SceneController.staticDeck[x].id;
-        name = SceneController.staticDeck[x].cardName;
+        cardName = SceneController.staticDeck[x].cardName;
         cost = SceneController.staticDeck[x].cost;
         attack = SceneController.staticDeck[x].attack;
         description = SceneController.staticDeck[x].description; //change to rollover/click on?
@@ -40,7 +42,7 @@ public class CardShop : MonoBehaviour
         cardBack.SetActive(true);
         gameObject.GetComponent<Draggable>().enabled = false;
 
-        nameText.text = "" + name;
+        nameText.text = "" + cardName;
         costText.text = "" + cost;
         attackText.text = "" + attack;
         descriptionText.text = "" + description;

@@ -54,6 +54,8 @@ public class aiDeck : MonoBehaviour {
 
         Hand = GameObject.Find("oppHand");
         //Zone = GameObject.Find("oppPlay");
+
+        Shuffle();
         StartCoroutine(StartGame()); //puts card into hand
 
         draw = true;

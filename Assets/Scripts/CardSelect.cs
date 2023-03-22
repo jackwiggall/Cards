@@ -29,7 +29,7 @@ public class CardSelect : MonoBehaviour
         int x = Random.Range(1, CardDatabase.crewList.Count);
 
         id = CardDatabase.crewList[x].id;
-        name = CardDatabase.crewList[x].cardName;
+        cardName = CardDatabase.crewList[x].cardName;
         cost = CardDatabase.crewList[x].cost;
         attack = CardDatabase.crewList[x].attack;
         description = CardDatabase.crewList[x].description; //change to rollover/click on?
@@ -40,7 +40,7 @@ public class CardSelect : MonoBehaviour
         cardBack.SetActive(true);
         gameObject.GetComponent<Draggable>().enabled = false;
 
-        nameText.text = "" + name;
+        nameText.text = "" + cardName;
         costText.text = "" + cost;
         attackText.text = "" + attack;
         descriptionText.text = "" + description;
