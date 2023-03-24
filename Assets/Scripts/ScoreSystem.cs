@@ -45,7 +45,7 @@ public class ScoreSystem : MonoBehaviour
         drawAI = false;
         drawPlayer = false;
 
-        tie = Resources.Load<Sprite>("scoreEmpty");
+        tie = Resources.Load<Sprite>("scoreTie");
         win = Resources.Load<Sprite>("scoreGreen");
         lose = Resources.Load<Sprite>("scoreRed");
 
@@ -179,13 +179,14 @@ public class ScoreSystem : MonoBehaviour
             if (victory)
             {
                 turnText.text = "Game Won";
+                SceneController.gold += 20; //change to better value
                 yield return new WaitForSeconds(2);
                 SceneController.LoadMapScene();
             }
             else {
                 turnText.text = "Game Lost";
                 yield return new WaitForSeconds(2);
-                SceneController.LoadMapScene();
+                SceneController.LoadMenuScene();
             }
 
         }

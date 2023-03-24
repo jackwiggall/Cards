@@ -32,7 +32,7 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
 
         //if selecting card for looting
         if (gameObject.scene.name.Equals("Loot")) {
-            Debug.Log("Selection made");
+            //Debug.Log("Selection made");
             //empty panel so only this is there
             foreach (Transform child in placeholderParent.transform)
             {
@@ -41,9 +41,9 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
             this.transform.SetParent(placeholderParent); //return to place
             SelectSystem.chosenLoot();
         } else if (gameObject.scene.name.Equals("Shop")) {
-            Debug.Log("Selection made");
+            //Debug.Log("Selection made");
             this.transform.SetParent(placeholderParent);
-            SelectSystem.chosenShop();
+            SelectSystem.chosenShop(this.transform.GetSiblingIndex());
         }
 
     }

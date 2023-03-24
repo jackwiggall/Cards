@@ -71,10 +71,10 @@ public class SelectSystem : MonoBehaviour
     }
 
     //picked a card for upgrading
-    public static void chosenShop()
+    public static void chosenShop(int index)
     {
         GameObject select = GameObject.Find("cardSelect"); //make new object cause cant access selection obj
-        CardShop temp = select.transform.GetChild(0).GetComponent<CardShop>();
+        CardShop temp = select.transform.GetChild(index).GetComponent<CardShop>(); //change from 0 to number
         temp.gameObject.GetComponent<Draggable>().enabled = false;
         
         //upgrade card in deck, cant spam

@@ -55,6 +55,12 @@ public class AI : MonoBehaviour
         //replace 7 with maxplaysize
         if (Hand.transform.childCount > 0 && Zone.transform.childCount < 7) //check hand isnt empty
         {
+            if (TurnSystem.opPower>TurnSystem.power+1) { //card doesnt need to be played
+                pass++;
+                TurnSwap.GetComponent<TurnSwap>().EndAI();
+                return;
+            }
+
             for (int i = 0; i < Hand.transform.childCount; i++)
             {
                 /*try

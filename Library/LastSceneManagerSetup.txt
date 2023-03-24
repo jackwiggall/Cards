@@ -1,7 +1,7 @@
 sceneSetups:
 - path: Assets/Scenes/Map.unity
-  isLoaded: 1
-  isActive: 1
+  isLoaded: 0
+  isActive: 0
   isSubScene: 0
 - path: Assets/Scenes/Battle.unity
   isLoaded: 0
@@ -14,4 +14,8 @@ sceneSetups:
 - path: Assets/Scenes/Shop.unity
   isLoaded: 0
   isActive: 0
+  isSubScene: 0
+- path: Assets/Scenes/Menu.unity
+  isLoaded: 1
+  isActive: 1
   isSubScene: 0

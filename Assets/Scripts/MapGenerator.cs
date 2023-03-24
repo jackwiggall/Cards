@@ -30,15 +30,21 @@ public class MapGenerator : MonoBehaviour
     }
 
     public void checkReload() {
-        if (SceneController.reload != true)
+        if (SceneController.deckMade != true) //deck is made on first battle so can check if done
         { //returning to previous map
 
-            randomisation();
+            generateBattle();
         }
         else {
             //first time on map
             reload();
         }
+    }
+
+    public void generateBattle() {
+        var temp = Instantiate(node, transform.position, transform.rotation);
+        temp.tag = "Battle";
+        temp.transform.SetParent(panel2.transform);
     }
 
     //empty map, technically not needed
@@ -58,7 +64,7 @@ public class MapGenerator : MonoBehaviour
     public void generate() {
 
         var temp = Instantiate(node, transform.position, transform.rotation);
-        int x = Random.Range(1, 4);
+        int x = Random.Range(1, 5); //change rarity?
         if (x == 1)
         {
             temp.tag = "Shop";
