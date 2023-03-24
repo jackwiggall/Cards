@@ -35,7 +35,7 @@ public class aiDeck : MonoBehaviour {
     // Start is called before the first frame update
     void Start()
     {
-        deckSize = 10;
+        deckSize = 10; //PlayDeck.deckSize?
         maxHand = PlayerDeck.maxHand;
         startHand = PlayerDeck.startHand;
 
@@ -110,15 +110,19 @@ public class aiDeck : MonoBehaviour {
 
         if (TurnSystem.startTurn == true && TurnSystem.isYourTurn == false) {//broken
             //add calculation of card number to draw
-            if (deckSize > 0 && Hand.transform.childCount < maxHand-1) //can only draw if card exists and space in hand
+            /*if (deckSize > 0 && Hand.transform.childCount < maxHand) //can only draw if card exists and space in hand
             {
                 StartCoroutine(Draw(1));//change to value of card draw
                 //draw = true;
-            }
-            else { 
-                //no cards to draw, do something else?
-            }
+            }*/
             TurnSystem.startTurn = false;
+        }
+
+        //draw cards for new round
+        if (ScoreSystem.drawAI)
+        {
+            ScoreSystem.drawAI = false;
+            StartCoroutine(StartGame()); //puts card into hand
         }
     }
 
@@ -137,8 +141,15 @@ public class aiDeck : MonoBehaviour {
     {
         //should draw be max hand size or only draw 3?
         for (int i = 0; i < startHand; i++) { //loop for starting hand
-            yield return new WaitForSeconds(1);
-            Instantiate(CardToAI, transform.position, transform.rotation);
+            if (Hand.transform.childCount < maxHand-1 && deckSize > 0)
+            {
+                yield return new WaitForSeconds(1);
+                Instantiate(CardToAI, transform.position, transform.rotation);
+            }
+            else
+            {
+                yield break;
+            }
         }
     }
 

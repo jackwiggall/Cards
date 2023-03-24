@@ -93,7 +93,7 @@ public class TurnSystem : MonoBehaviour
             StartCoroutine(wait()); //needs delay before bot starts to draw all cards
         }
         //gold = 10;
-        oppGold = 10;
+        oppGold = 20;
         startTurn = false;
     }
 

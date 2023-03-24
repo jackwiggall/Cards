@@ -11,7 +11,7 @@ public class PlayerDeck : MonoBehaviour {
     public int x; //random int
     public static int deckSize; //player's decksize (will need to be set)
     public static int maxHand = 7; //max hand size?
-    public static int startHand = 3; //initial hand size?
+    public static int startHand = 5; //initial hand size?
 
     //the 4 cards in the pile to visualise decksize
     //actual cards valueless?
@@ -125,16 +125,19 @@ public class PlayerDeck : MonoBehaviour {
 
         if (TurnSystem.startTurn == true && TurnSystem.isYourTurn == true) {
             //add calculation of card number to draw
-            if (deckSize > 0 && Hand.transform.childCount < maxHand-1) //can only draw if card exists and space in hand
+            /*if (deckSize > 0 && Hand.transform.childCount < maxHand) //can only draw if card exists and space in hand
             {
                 StartCoroutine(Draw(1));//change to value of card draw
-            }
-            else { 
-                //no cards to draw, do something else?
-            }
+            }*/
             TurnSystem.startTurn = false;
 
             StartCoroutine(wait());
+        }
+
+        //draw cards for new round
+        if (ScoreSystem.drawPlayer) {
+            ScoreSystem.drawPlayer = false;
+            StartCoroutine(StartGame()); //puts card into hand
         }
     }
 
@@ -157,12 +160,14 @@ public class PlayerDeck : MonoBehaviour {
                 if (temp.canSummon == true)
                 {
                     //Debug.Log("Playable");//can play card, exit loop
+                    TurnSwap.GetComponent<TurnSwap>().canSkip(); //user can play but also option to skip
                     return;
                 }
   
             }
         }
         AI.pass++;
+        TurnSwap.GetComponent<TurnSwap>().canSkip();
         TurnSwap.GetComponent<TurnSwap>().EndTurn(); //cant play skip turn
     }
 
@@ -182,8 +187,14 @@ public class PlayerDeck : MonoBehaviour {
     {
         //should draw be max hand size or only draw 3?
         for (int i = 0; i < startHand; i++) { //loop for starting hand
-            yield return new WaitForSeconds(1);
-            Instantiate(CardToHand, transform.position, transform.rotation);
+            if (Hand.transform.childCount < maxHand - 1 && deckSize > 0)
+            {
+                yield return new WaitForSeconds(1);
+                Instantiate(CardToHand, transform.position, transform.rotation);
+            }
+            else {
+                yield break;
+            }
         }
     }
 
