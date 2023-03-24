@@ -204,7 +204,7 @@ public class PlayerDeck : MonoBehaviour {
     }
 
 
-    IEnumerator Draw(int x) {
+    IEnumerator Draw(int x) { //need to add handsize check
         for (int i = 0; i < x; i++) {
             yield return new WaitForSeconds(1);
             Instantiate(CardToHand, transform.position, transform.rotation);

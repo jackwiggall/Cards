@@ -13,7 +13,7 @@ public class AI : MonoBehaviour
 
     public static bool play;
     public static int pass;
-    public static bool end; //is game over
+    public static bool end; //round over
 
     void Start() {
         Hand = GameObject.Find("oppHand");
@@ -43,42 +43,12 @@ public class AI : MonoBehaviour
         yield break;
     }
 
-    //game ended, delay before next event
-    IEnumerator delay()
-    {
-        yield return new WaitForSeconds(2);
-        SceneController.LoadMapScene();
-        yield break;
-    }
-
-    //round has ended
-    void endRound() {
-        end = true;
-        if (TurnSystem.power == TurnSystem.opPower)
-        {
-            Debug.Log("Tie");
-            turnText.text = "You Tied";
-        }
-        else if (TurnSystem.power > TurnSystem.opPower)
-        {
-            Debug.Log("You Win");
-            turnText.text = "You Win";
-        }
-        else
-        {
-            Debug.Log("You Lose");
-            turnText.text = "You Lose";
-        }
-        StartCoroutine(delay());
-
-    }
-
     //pick a card from hand to play
     void pickCard()
     {
         if (pass >= 2) { //amount of passes before end
             
-            endRound();
+            end = true; //activates ScoreSystem ending round
         }
 
 
