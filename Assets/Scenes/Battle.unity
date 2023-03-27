@@ -288,6 +288,7 @@ GameObject:
   - component: {fileID: 326906155}
   - component: {fileID: 326906159}
   - component: {fileID: 326906158}
+  - component: {fileID: 326906160}
   m_Layer: 0
   m_Name: AudioSystem
   m_TagString: Untagged
@@ -448,6 +449,21 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 326906154}
   m_Enabled: 1
+--- !u!114 &326906160
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 326906154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 480ceac0c5149b54797c48a578229d03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  aud: {fileID: 0}
+  clips:
+  - {fileID: 8300000, guid: bfc45493bac3208438d11bd296d4675c, type: 3}
 --- !u!1 &405153451
 GameObject:
   m_ObjectHideFlags: 0
@@ -1280,11 +1296,8 @@ MonoBehaviour:
   round1: {fileID: 256241245}
   round2: {fileID: 182569785}
   round3: {fileID: 1851423516}
-  round: 0
   turnText: {fileID: 1360950992}
-  tie: {fileID: 0}
-  win: {fileID: 0}
-  lose: {fileID: 0}
+  TurnSwap: {fileID: 0}
 --- !u!1 &1001645189
 GameObject:
   m_ObjectHideFlags: 0
@@ -3364,8 +3377,6 @@ MonoBehaviour:
   Deck: {fileID: 1564834676}
   Clones: []
   Hand: {fileID: 405153451}
-  audioSource: {fileID: 326906158}
-  bang: {fileID: 8300000, guid: 1439568d5e4931f47b3f9fd87b12bdc7, type: 3}
   TurnSwap: {fileID: 0}
 --- !u!114 &1564834682
 MonoBehaviour:

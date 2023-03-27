@@ -29,9 +29,6 @@ public class PlayerDeck : MonoBehaviour {
 
     public GameObject Hand;
 
-    public AudioSource audioSource;
-    public AudioClip bang;
-
     public GameObject TurnSwap;
 
     // Start is called before the first frame update
@@ -180,7 +177,7 @@ public class PlayerDeck : MonoBehaviour {
         {
             Destroy(Clone);
         }
-        audioSource.PlayOneShot(bang, 1f);
+        //audioSource.PlayOneShot(bang, 1f);
     }
 
     IEnumerator StartGame()
@@ -191,6 +188,7 @@ public class PlayerDeck : MonoBehaviour {
             {
                 yield return new WaitForSeconds(1);
                 Instantiate(CardToHand, transform.position, transform.rotation);
+                SoundSystem.play = "drawSound";
             }
             else {
                 yield break;
