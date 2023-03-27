@@ -188,7 +188,7 @@ public class PlayerDeck : MonoBehaviour {
             {
                 yield return new WaitForSeconds(1);
                 Instantiate(CardToHand, transform.position, transform.rotation);
-                SoundSystem.play = "drawSound";
+                SoundSystem.play = "drawCard";
             }
             else {
                 yield break;

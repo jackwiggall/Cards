@@ -73,7 +73,7 @@ public class AI : MonoBehaviour
                         GameObject temp2 = Hand.transform.GetChild(i).gameObject;
                         //Destroy(Hand.transform.GetChild(i)); //delete original object
                         temp2.transform.SetParent(Zone.transform); //move card to zone
-
+                        
                         temp.Summon();
                         temp.cardBack = false; //show card to player
                         TurnSwap.GetComponent<TurnSwap>().EndAI();

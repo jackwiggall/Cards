@@ -160,5 +160,6 @@ public class ThisCard : MonoBehaviour {
         canSummon = false; //already summoned so cant resummon
         //sound effect?
         TurnSwap.GetComponent<TurnSwap>().EndTurn();
+        SoundSystem.play = "playCard";
     }
 }

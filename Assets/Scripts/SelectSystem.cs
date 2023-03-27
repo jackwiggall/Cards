@@ -40,6 +40,7 @@ public class SelectSystem : MonoBehaviour
             //yield return new WaitForSeconds(1);
             var temp = Instantiate(card, transform.position, transform.rotation);
             temp.transform.SetParent(selection.transform);
+            SoundSystem.play = "drawCard";
         }
         //make cards visible
         for (int i = 0; i < x; i++) {
