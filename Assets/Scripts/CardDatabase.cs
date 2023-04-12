@@ -30,6 +30,7 @@ public class CardDatabase : MonoBehaviour {
 		capList.Add(new Card(13, "America", 0, 5, "Captain", Resources.Load<Sprite>("portraits/captains/america")));
 		capList.Add(new Card(14, "Sisko", 0, 4, "Captain", Resources.Load<Sprite>("portraits/captains/sisko")));
 		capList.Add(new Card(15, "Barbarossa", 0, 5, "Captain", Resources.Load<Sprite>("portraits/captains/barbarossa")));
+		capList.Add(new Card(16, "Wakka", 0, 4, "Captain", Resources.Load<Sprite>("portraits/captains/wakka")));
 
 		//all crew min cost=1
 		crewList.Add(new Card(0, "", 1, 1, "Crew", Resources.Load<Sprite>("")));

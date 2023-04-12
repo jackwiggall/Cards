@@ -67,7 +67,7 @@ public class SelectSystem : MonoBehaviour
         CardSelect temp = select.transform.GetChild(0).GetComponent<CardSelect>();
         temp.gameObject.GetComponent<Draggable>().enabled = false;
         //add card to deck
-        SceneController.staticDeck.Add(new Card(temp.id, temp.cardName, temp.cost, temp.attack, temp.description, Resources.Load<Sprite>("")));
+        SceneController.staticDeck.Add(new Card(temp.id, temp.cardName, temp.cost, temp.attack, temp.description, temp.thisSprite));
         SceneController.LoadMapScene(); //return to map
     }
 

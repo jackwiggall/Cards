@@ -6,8 +6,13 @@ public class menuSystem : MonoBehaviour
 {
     public void startButton() {
 
-        //clear deck, clear 
+        //clear vars
+        SceneController.gold = 20;
+        SceneController.staticDeck = new List<Card>();
+        SceneController.deckMade = false;
+        SceneController.type = "null";
 
+        //load first map
         SceneController.LoadMapScene();
     }
 }
