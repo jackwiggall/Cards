@@ -15,4 +15,8 @@ public class menuSystem : MonoBehaviour
         //load first map
         SceneController.LoadMapScene();
     }
+
+    public void quitButton() {
+        Application.Quit();
+    }
 }
