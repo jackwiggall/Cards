@@ -16,7 +16,7 @@ public class SceneController : MonoBehaviour
     public static Animator animator;
 
     void Start() { 
-        animator = gameObject.GetComponent<Animator>();
+        animator = GameObject.Find("Transition").GetComponent<Animator>();
     }
 
     public static void FadeToLevel() { //starts fade out animation

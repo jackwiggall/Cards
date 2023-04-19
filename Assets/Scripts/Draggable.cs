@@ -8,6 +8,8 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
     public Transform parentToReturnTo = null;
     public Transform placeholderParent = null;
 
+    //public bool valid = true;
+
     GameObject placeholder = null;
 
     public void OnBeginDrag(PointerEventData eventData)
@@ -32,18 +34,13 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
 
         //if selecting card for looting
         if (gameObject.scene.name.Equals("Loot")) {
-            //Debug.Log("Selection made");
-            //empty panel so only this is there
-            foreach (Transform child in placeholderParent.transform)
-            {
-                Destroy(child.gameObject);
-            }
+            Debug.Log("Selection made");
             this.transform.SetParent(placeholderParent); //return to place
-            SelectSystem.chosenLoot();
+            SelectSystem.chosenLoot(gameObject.GetComponent<CardSelect>());
         } else if (gameObject.scene.name.Equals("Shop")) {
-            //Debug.Log("Selection made");
+            Debug.Log("Selection made");
             this.transform.SetParent(placeholderParent);
-            SelectSystem.chosenShop(this.transform.GetSiblingIndex());
+            SelectSystem.chosenShop(gameObject.GetComponent<CardShop>());
         }
 
     }

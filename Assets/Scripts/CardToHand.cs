@@ -13,7 +13,7 @@ public class CardToHand : MonoBehaviour{
     {
         Hand = GameObject.Find("Hand");
         It.transform.SetParent(Hand.transform);
-        It.transform.localScale = Vector3.one * 1.1f;
+        It.transform.localScale = Vector3.one * 2f;
         It.transform.position = new Vector3(transform.position.x, transform.position.y, -48);
         It.transform.eulerAngles = new Vector3(0, 0, 0);
     }

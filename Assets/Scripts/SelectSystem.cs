@@ -9,7 +9,7 @@ public class SelectSystem : MonoBehaviour
     public Text moneyText;
     //public Text instructions;
 
-    public GameObject selection;
+    public static GameObject selection;
     public GameObject card;
     
     //amount to loop
@@ -19,6 +19,7 @@ public class SelectSystem : MonoBehaviour
     void Start()
     {
         //instructions.text = "Choose a Card";
+        selection = GameObject.Find("cardSelect");
         cardSelect();
     }
 
@@ -28,7 +29,7 @@ public class SelectSystem : MonoBehaviour
     }
 
     void cardSelect(){
-        //check deck exists yet (lmao)
+        //check deck exists yet
         if (SceneController.deckMade == true) {
             StartCoroutine(Draw());
         }
@@ -43,6 +44,7 @@ public class SelectSystem : MonoBehaviour
         { //loop for drawing cards
             //yield return new WaitForSeconds(1);
             var temp = Instantiate(card, transform.position, transform.rotation);
+            temp.transform.localScale = Vector3.one * 3.6f;
             temp.transform.SetParent(selection.transform);
             SoundSystem.play = "drawCard";
         }
@@ -55,11 +57,13 @@ public class SelectSystem : MonoBehaviour
             if (gameObject.scene.name.Equals("Loot"))
             {
                 CardSelect temp = selection.transform.GetChild(i).GetComponent<CardSelect>();
+                //temp.transform.localScale = Vector3.one * 4f; //resize
                 temp.cardBack.SetActive(false); //hide cover
                 temp.gameObject.GetComponent<Draggable>().enabled = true;
             }
             else { //shop
                 CardShop temp = selection.transform.GetChild(i).GetComponent<CardShop>();
+                //temp.transform.localScale = Vector3.one * 4f;
                 temp.cardBack.SetActive(false); //hide cover
                 temp.gameObject.GetComponent<Draggable>().enabled = true;
             }
@@ -67,31 +71,49 @@ public class SelectSystem : MonoBehaviour
     }
 
     //picked 1 card for looting
-    public static void chosenLoot() {
-        GameObject select = GameObject.Find("cardSelect"); //make new object cause cant access selection obj
-        CardSelect temp = select.transform.GetChild(0).GetComponent<CardSelect>();
-        temp.gameObject.GetComponent<Draggable>().enabled = false;
+    public static void chosenLoot(CardSelect temp) {
         //add card to deck
         SceneController.staticDeck.Add(new Card(temp.id, temp.cardName, temp.cost, temp.attack, temp.description, temp.thisSprite));
+        //selection has been made clear rest
+        foreach (Transform child in selection.transform)
+        {
+            Destroy(child.gameObject);
+        }
+
         SceneController.LoadMapScene(); //return to map
     }
 
     //picked a card for upgrading
-    public static void chosenShop(int index)
+    public static void chosenShop(CardShop temp)
     {
-        GameObject select = GameObject.Find("cardSelect"); //make new object cause cant access selection obj
-        CardShop temp = select.transform.GetChild(index).GetComponent<CardShop>(); //change from 0 to number
+        //GameObject select = GameObject.Find("cardSelect"); //make new object cause cant access selection obj
+        //CardShop temp = select.transform.GetChild(index).GetComponent<CardShop>(); //change from 0 to number
         temp.gameObject.GetComponent<Draggable>().enabled = false;
         
         //upgrade card in deck, cant spam
-        if (SceneController.gold >= temp.cost && temp.cardBack==false) {
+        if (SceneController.gold >= temp.cost) {
 
             Debug.Log("Upgrading "+temp.cardName);
             SceneController.staticDeck[temp.x].attack++;
             SceneController.gold -= temp.cost;
 
         }//needs to inform player cant afford otherwise
-        temp.cardBack.SetActive(true);
+        //temp.cardBack.SetActive(true);
+        
+        //objects in 
+        foreach (Transform child in selection.transform)
+        {
+            Draggable script = child.GetComponent<Draggable>();
+            if (script == null || script.enabled == false)
+            {
+                Destroy(child.gameObject);
+            }
+        }
+
+        //if all upgrades bought
+        if (selection.transform.childCount == 0) {
+            SceneController.LoadMapScene(); //return to map
+        }
     }
 
     //finished in the shop, press anchor to return

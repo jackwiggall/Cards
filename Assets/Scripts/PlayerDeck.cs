@@ -141,27 +141,34 @@ public class PlayerDeck : MonoBehaviour {
     //waits a second before checking if playable turn
     IEnumerator wait()
     {
-        yield return new WaitForSeconds(2);
-        checkPlayable();
+        //is hand empty
+        if (Hand.transform.childCount > 0)
+        {//if hand is empty end turn straight away
+            yield return new WaitForSeconds(2);
+            checkPlayable();
+        }
+        else
+        {
+            AI.pass++;
+            TurnSwap.GetComponent<TurnSwap>().canSkip();
+            TurnSwap.GetComponent<TurnSwap>().EndTurn();
+        }
         yield break;
     }
 
     //for auto skipping users turn
     public void checkPlayable() {
-        if (Hand.transform.childCount > 0) //check hand isnt empty
+        for (int i = 0; i < Hand.transform.childCount; i++)
         {
-            for (int i = 0; i < Hand.transform.childCount; i++)
+            ThisCard temp = Hand.transform.GetChild(i).GetComponent<ThisCard>();
+            //Debug.Log("Looping");                                        
+            if (temp.canSummon == true)
             {
-                ThisCard temp = Hand.transform.GetChild(i).GetComponent<ThisCard>();
-                //Debug.Log("Looping");                                        
-                if (temp.canSummon == true)
-                {
-                    //Debug.Log("Playable");//can play card, exit loop
-                    TurnSwap.GetComponent<TurnSwap>().canSkip(); //user can play but also option to skip
-                    return;
-                }
-  
+                //Debug.Log("Playable");//can play card, exit loop
+                TurnSwap.GetComponent<TurnSwap>().canSkip(); //user can play but also option to skip
+                return;
             }
+  
         }
         AI.pass++;
         TurnSwap.GetComponent<TurnSwap>().canSkip();
@@ -187,7 +194,7 @@ public class PlayerDeck : MonoBehaviour {
             if (Hand.transform.childCount < maxHand - 1 && deckSize > 0)
             {
                 yield return new WaitForSeconds(1);
-                Instantiate(CardToHand, transform.position, transform.rotation);
+                Instantiate(CardToHand, transform.position, transform.rotation); //not set to right size?
                 SoundSystem.play = "drawCard";
             }
             else {

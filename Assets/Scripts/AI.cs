@@ -38,20 +38,29 @@ public class AI : MonoBehaviour
 
     //stops turn from ending straight away and emptying hand on field
     IEnumerator wait() {
-        yield return new WaitForSeconds(2);
-        pickCard();
+        if (Hand.transform.childCount > 0) {//if hand is empty end turn straight away
+            yield return new WaitForSeconds(2);
+            pickCard(); 
+        }else {
+            pass++;
+            checkPass();
+            TurnSwap.GetComponent<TurnSwap>().EndAI();
+        }
         yield break;
+    }
+
+    void checkPass() {
+        if (pass >= 2)
+        { //amount of passes before end
+
+            end = true; //activates ScoreSystem ending round
+        }
     }
 
     //pick a card from hand to play
     void pickCard()
     {
-        if (pass >= 2) { //amount of passes before end
-            
-            end = true; //activates ScoreSystem ending round
-        }
-
-
+        checkPass();
         //replace 7 with maxplaysize
         if (Hand.transform.childCount > 0 && Zone.transform.childCount < 7) //check hand isnt empty
         {
