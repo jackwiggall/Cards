@@ -18,9 +18,13 @@ public class SelectSystem : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        moneyText.text = SceneController.gold+"";
         //instructions.text = "Choose a Card";
         cardSelect();
+    }
+
+    void Update() {
+        //sets gold display to gold so auto updates when something bought
+        moneyText.text = SceneController.gold + "";
     }
 
     void cardSelect(){
@@ -45,6 +49,7 @@ public class SelectSystem : MonoBehaviour
         //make cards visible
         for (int i = 0; i < x; i++) {
             yield return new WaitForSeconds(1);
+            SoundSystem.play = "drawCard";
 
             //different scripts depending on if looting or shopping
             if (gameObject.scene.name.Equals("Loot"))
