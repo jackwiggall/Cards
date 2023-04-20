@@ -149,6 +149,7 @@ public class PlayerDeck : MonoBehaviour {
         }
         else
         {
+            yield return new WaitForSeconds(0.5f);
             AI.pass++;
             TurnSwap.GetComponent<TurnSwap>().canSkip();
             TurnSwap.GetComponent<TurnSwap>().EndTurn();

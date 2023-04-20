@@ -14,7 +14,7 @@ public class CardDatabase : MonoBehaviour {
 		//id, cardName, cost, attack, health, desc, img
 		//captain costs 0 and added to hand turn 1,
 		//all cards cost=0-5? min-attack=1
-		capList.Add(new Card(0,"", 0, 0,"Captain", Resources.Load <Sprite>(""))); //min cost 0
+		capList.Add(new Card(0,"Err Or", 0, 4,"Captain", Resources.Load <Sprite>("portraits/crew/murray"))); //min cost 0
 		capList.Add(new Card(1, "Kidd", 0, 5, "Captain", Resources.Load<Sprite>("portraits/captains/kidd")));
 		capList.Add(new Card(2, "Sparrow", 0, 4, "Captain", Resources.Load<Sprite>("portraits/captains/sparrow")));
 		capList.Add(new Card(3, "Kirt", 0, 5, "Captain", Resources.Load<Sprite>("portraits/captains/kirt")));
@@ -33,7 +33,7 @@ public class CardDatabase : MonoBehaviour {
 		capList.Add(new Card(16, "Wakka", 0, 4, "Captain", Resources.Load<Sprite>("portraits/captains/wakka")));
 
 		//all crew min cost=1
-		crewList.Add(new Card(0, "", 1, 1, "Crew", Resources.Load<Sprite>("")));
+		crewList.Add(new Card(0, "Err Or", 1, 1, "Crew", Resources.Load<Sprite>("portraits/crew/murray")));
 		crewList.Add(new Card(1,"Guybrush", 1, 1,"Crew", Resources.Load <Sprite>("portraits/crew/guybrush")));
 		crewList.Add(new Card(2,"Murray", 2, 3,"Crew", Resources.Load <Sprite>("portraits/crew/murray"))); //le skeleton
 		crewList.Add(new Card(3, "Reacher", 1, 2, "Crew", Resources.Load <Sprite>("portraits/crew/reacher")));

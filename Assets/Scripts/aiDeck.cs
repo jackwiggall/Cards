@@ -35,16 +35,20 @@ public class aiDeck : MonoBehaviour {
     // Start is called before the first frame update
     void Start()
     {
-        deckSize = 10; //PlayDeck.deckSize?
+        deckSize = 10;
+        /*if (SceneController.deckMade)
+        {
+            deckSize = SceneController.staticDeck.Count; //enemy decksize is players
+        }*/
         maxHand = PlayerDeck.maxHand;
         startHand = PlayerDeck.startHand;
 
         //sets a random captain to the top of the deck
         x = Random.Range(1, CardDatabase.capList.Count);
-        deck[deckSize-1] = CardDatabase.capList[x]; //put captain at bottom so drawn first
+        deck[0] = CardDatabase.capList[x]; //captain
 
         //creates a deck with a random assortment of cards from the database
-        for(int i=0;i<deckSize-1;i++)
+        for(int i=1;i<deckSize;i++)
         {
             //get random number
             x = Random.Range(1, CardDatabase.crewList.Count);

@@ -26,6 +26,13 @@ public class SelectSystem : MonoBehaviour
     void Update() {
         //sets gold display to gold so auto updates when something bought
         moneyText.text = SceneController.gold + "";
+
+        //if nothing to choose
+        if (selection.transform.childCount == 0)
+        {
+            SceneController.LoadMapScene(); //return to map
+        }
+
     }
 
     void cardSelect(){
@@ -46,7 +53,6 @@ public class SelectSystem : MonoBehaviour
             var temp = Instantiate(card, transform.position, transform.rotation);
             temp.transform.localScale = Vector3.one * 3.6f;
             temp.transform.SetParent(selection.transform);
-            SoundSystem.play = "drawCard";
         }
         //make cards visible
         for (int i = 0; i < x; i++) {
@@ -73,6 +79,7 @@ public class SelectSystem : MonoBehaviour
     //picked 1 card for looting
     public static void chosenLoot(CardSelect temp) {
         //add card to deck
+        SoundSystem.play = "playCard";
         SceneController.staticDeck.Add(new Card(temp.id, temp.cardName, temp.cost, temp.attack, temp.description, temp.thisSprite));
         //selection has been made clear rest
         foreach (Transform child in selection.transform)
@@ -89,7 +96,7 @@ public class SelectSystem : MonoBehaviour
         //GameObject select = GameObject.Find("cardSelect"); //make new object cause cant access selection obj
         //CardShop temp = select.transform.GetChild(index).GetComponent<CardShop>(); //change from 0 to number
         temp.gameObject.GetComponent<Draggable>().enabled = false;
-        
+        SoundSystem.play = "playCard";
         //upgrade card in deck, cant spam
         if (SceneController.gold >= temp.cost) {
 
@@ -108,11 +115,6 @@ public class SelectSystem : MonoBehaviour
             {
                 Destroy(child.gameObject);
             }
-        }
-
-        //if all upgrades bought
-        if (selection.transform.childCount == 0) {
-            SceneController.LoadMapScene(); //return to map
         }
     }
 

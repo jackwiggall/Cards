@@ -42,6 +42,7 @@ public class AI : MonoBehaviour
             yield return new WaitForSeconds(2);
             pickCard(); 
         }else {
+            yield return new WaitForSeconds(0.5f);
             pass++;
             checkPass();
             TurnSwap.GetComponent<TurnSwap>().EndAI();

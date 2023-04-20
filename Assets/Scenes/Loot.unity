@@ -987,6 +987,7 @@ GameObject:
   - component: {fileID: 2020640065}
   - component: {fileID: 2020640064}
   - component: {fileID: 2020640067}
+  - component: {fileID: 2020640068}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -1056,6 +1057,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moneyText: {fileID: 1693595505}
-  selection: {fileID: 1689751236}
   card: {fileID: 4094732829664452705, guid: 25db13358d76c604089892113c1f838b, type: 3}
   x: 0
+--- !u!114 &2020640068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2020640063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 060ea4cb3ff4c3d4092eca744df29c11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

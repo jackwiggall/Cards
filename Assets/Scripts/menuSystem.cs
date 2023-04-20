@@ -16,6 +16,10 @@ public class menuSystem : MonoBehaviour
         SceneController.LoadMapScene();
     }
 
+    public void tutButton() {
+        SceneController.LoadTutScene();
+    }
+
     public void quitButton() {
         Application.Quit();
     }

@@ -11,7 +11,7 @@ public class SceneController : MonoBehaviour
 
     //move to new script?
     public static int gold = 20;
-    public static List<Card> staticDeck = new List<Card>(); //retain deck between games 
+    public static List<Card> staticDeck = new List<Card>(); //retain deck between battles 
 
     public static Animator animator;
 
@@ -57,6 +57,12 @@ public class SceneController : MonoBehaviour
     public static void LoadMapScene()
     {
         level = "Map";
+        FadeToLevel();
+    }
+    
+    public static void LoadTutScene()
+    {
+        level = "Tutorial";
         FadeToLevel();
     }
 

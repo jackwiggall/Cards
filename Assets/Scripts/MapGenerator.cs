@@ -84,7 +84,7 @@ public class MapGenerator : MonoBehaviour
     //choose what to generate
     public void randomisation() {
         //new in panel2
-        int x = Random.Range(1, 3);
+        int x = Random.Range(1, 4);
         //Debug.Log("panel2 "+ x);
         for (int i = 0; i < x; i++)
         {
