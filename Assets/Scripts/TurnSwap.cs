@@ -27,7 +27,6 @@ public class TurnSwap : MonoBehaviour
             if (TurnSystem.isYourTurn) //end your turn
             {
                 TurnSystem.isYourTurn = false;
-                TurnSystem.yourOpponentTurn += 1;
                 turnText.text = "Opponent Turn";
                 aiDeck.draw = false;
                 AI.play = true;
@@ -45,7 +44,6 @@ public class TurnSwap : MonoBehaviour
     public void EndAI() {
         if (AI.end == false) {
             TurnSystem.isYourTurn = true;
-            TurnSystem.yourTurn += 1;
             turnText.text = "Your Turn";
             aiDeck.draw = true;
             TurnSystem.startTurn = true;//starts next turn

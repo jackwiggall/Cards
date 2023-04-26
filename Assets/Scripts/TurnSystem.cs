@@ -6,8 +6,6 @@ using UnityEngine.UI;
 public class TurnSystem : MonoBehaviour
 {
     public static bool isYourTurn;
-    public static int yourTurn;
-    public static int yourOpponentTurn;
     public Text turnText;
 
     //public static int gold;
@@ -82,13 +80,9 @@ public class TurnSystem : MonoBehaviour
         int random = Random.Range(0,2);
         if (random == 0) {
             isYourTurn = true;
-            yourTurn = 1;
-            yourOpponentTurn = 0;
             turnText.text = "Your Turn";
         } else { 
             isYourTurn = false;
-            yourTurn = 0;
-            yourOpponentTurn = 1;
             turnText.text = "Opponent Turn";
             StartCoroutine(wait()); //needs delay before bot starts to draw all cards
         }

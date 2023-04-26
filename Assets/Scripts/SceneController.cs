@@ -65,10 +65,4 @@ public class SceneController : MonoBehaviour
         level = "Tutorial";
         FadeToLevel();
     }
-
-    //previous scene, not used
-    public static void ReloadScene()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
-    }
 }
