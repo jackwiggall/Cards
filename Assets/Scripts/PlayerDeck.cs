@@ -151,7 +151,6 @@ public class PlayerDeck : MonoBehaviour {
         {
             yield return new WaitForSeconds(0.5f);
             AI.pass++;
-            TurnSwap.GetComponent<TurnSwap>().canSkip();
             TurnSwap.GetComponent<TurnSwap>().EndTurn();
         }
         yield break;
@@ -166,13 +165,11 @@ public class PlayerDeck : MonoBehaviour {
             if (temp.canSummon == true)
             {
                 //Debug.Log("Playable");//can play card, exit loop
-                TurnSwap.GetComponent<TurnSwap>().canSkip(); //user can play but also option to skip
                 return;
             }
   
         }
         AI.pass++;
-        TurnSwap.GetComponent<TurnSwap>().canSkip();
         TurnSwap.GetComponent<TurnSwap>().EndTurn(); //cant play skip turn
     }
 

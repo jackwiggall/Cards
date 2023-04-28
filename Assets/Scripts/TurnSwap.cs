@@ -7,16 +7,6 @@ public class TurnSwap : MonoBehaviour
 {
     public Text turnText;
 
-    public static bool skippable;
-
-    void Start() {
-        skippable = false;
-    }
-
-    public void canSkip() {
-        skippable = true;
-    }
-
     //pass when card played, removed from TurnSystem to here as vars needed passed through
     //if player passes then they cant play til round end?
     public void EndTurn()
