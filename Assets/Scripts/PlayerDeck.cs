@@ -173,8 +173,8 @@ public class PlayerDeck : MonoBehaviour {
         TurnSwap.GetComponent<TurnSwap>().EndTurn(); //cant play skip turn
     }
 
-    IEnumerator Example()
-    { //shows more cards in the pile when shuffle button is clicked
+    /*IEnumerator shuffleAnimation()
+    { //shows more cards in the pile when shuffle button is clicked, no longer button
         yield return new WaitForSeconds(1);
         Clones = GameObject.FindGameObjectsWithTag("Clone");//make new tag?
 
@@ -183,7 +183,7 @@ public class PlayerDeck : MonoBehaviour {
             Destroy(Clone);
         }
         //audioSource.PlayOneShot(bang, 1f);
-    }
+    }*/
 
     IEnumerator StartGame()
     {
@@ -213,7 +213,7 @@ public class PlayerDeck : MonoBehaviour {
         }
 
         Instantiate(CardBack, transform.position, transform.rotation);
-        StartCoroutine(Example()); //creates new card in pile for shuffle effect
+        //StartCoroutine(shuffleAnimation()); //creates new card in pile for shuffle effect
 
     }
 

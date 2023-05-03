@@ -130,17 +130,6 @@ public class aiDeck : MonoBehaviour {
         }
     }
 
-    IEnumerator Example()
-    { //shows more cards in the pile when shuffle button is clicked
-        yield return new WaitForSeconds(1);
-        Clones = GameObject.FindGameObjectsWithTag("Clone");//make new tag?
-
-        foreach (GameObject Clone in Clones)
-        {
-            Destroy(Clone);
-        }
-    }
-
     IEnumerator StartGame() 
     {
         //should draw be max hand size or only draw 3?
@@ -170,8 +159,6 @@ public class aiDeck : MonoBehaviour {
         }
 
         Instantiate(CardBack, transform.position, transform.rotation);
-        StartCoroutine(Example()); //creates new card in pile for shuffle effect
-
     }
 
 
